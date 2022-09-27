@@ -5,6 +5,7 @@ import MyContext from './MyContext';
 function MyProvider({ children }) {
   const [planetList, setPlanetList] = useState([]);
   const [resultSearch, setResultSearch] = useState([]);
+  const [filterPlanetName, setPlanetName] = useState({});
 
   const fetchPlanet = async () => {
     try {
@@ -25,6 +26,9 @@ function MyProvider({ children }) {
     fetchPlanet,
     planetList,
     resultSearch,
+    setPlanetName,
+    filterPlanetName,
+    setResultSearch,
   };
 
   return (
