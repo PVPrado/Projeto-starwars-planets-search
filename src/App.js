@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
-import MyContext from './contexts/MyContext';
-import Table from './tests/components/Table';
+import Table from './components/Table';
+import HeaderFilters from './components/HeaderFilters';
+import MyProvider from './contexts/MyProvider';
 
 function App() {
   return (
-    <MyContext.Provider>
+    <MyProvider>
       <h1>PLANETS</h1>
+      <HeaderFilters />
       <Table />
-    </MyContext.Provider>
+    </MyProvider>
   );
 }
 
