@@ -10,10 +10,10 @@ function HeaderFilters() {
   });
   const { saveFilters, filtration, filterByNumericValues } = useContext(MyContext);
 
-  const arrayColumn = ['Population', 'Orbital_period',
-    'Diameter', 'Rotation_period', 'Surface_water'];
+  // const arrayColumn = ['Population', 'Orbital_period',
+  //   'Diameter', 'Rotation_period', 'Surface_water'];
 
-  const arrayMainor = ['Maior que', 'Menor que', 'Igual a'];
+  // const arrayMainor = ['maior que', 'menor que', 'igual a'];
 
   const searchPlanet = ({ target }) => {
     setPlanetName({ name: target.value });
@@ -67,23 +67,28 @@ function HeaderFilters() {
       <section>
         <select
           value={ objFilter.column }
+          name="column"
           data-testid="column-filter"
           onChange={ handleChange }
         >
 
-          { arrayColumn.map((c) => (
-            <option key={ c }>{ c }</option>
-          )) }
+          { filterRender.map((e) => (
+            <option key={ e }>{ e }</option>
+          ))}
         </select>
 
         <select
           value={ objFilter.comparison }
+          name="comparison"
           data-testid="comparison-filter"
           onChange={ handleChange }
         >
-          { arrayMainor.map((c) => (
+          {/* { arrayMainor.map((c) => (
             <option key={ c }>{ c }</option>
-          )) }
+          )) } */}
+          <option>maior que</option>
+          <option>menor que</option>
+          <option>igual a</option>
         </select>
 
         <input

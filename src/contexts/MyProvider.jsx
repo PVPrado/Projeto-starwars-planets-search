@@ -17,6 +17,7 @@ function MyProvider({ children }) {
         return key;
       });
       setPlanetList(filterApi);
+      // dica do saturnino
       setResultSearch(filterApi);
     } catch (error) {
       console.log(error.mensage);
@@ -27,6 +28,7 @@ function MyProvider({ children }) {
     setFilterValues([...filterByNumericValues, filter]);
   };
 
+  // ajuda da ana
   const filtration = (filter) => {
     switch (filter.comparison) {
     case 'maior que':
