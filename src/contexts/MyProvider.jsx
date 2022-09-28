@@ -6,6 +6,7 @@ function MyProvider({ children }) {
   const [planetList, setPlanetList] = useState([]);
   const [resultSearch, setResultSearch] = useState([]);
   const [filterPlanetName, setPlanetName] = useState({});
+  const [filterByNumericValues, setFilterValues] = useState([]);
 
   const fetchPlanet = async () => {
     try {
@@ -22,6 +23,26 @@ function MyProvider({ children }) {
     }
   };
 
+  const saveFilters = (filter) => {
+    setFilterValues([...filterByNumericValues, filter]);
+  };
+
+  const filtration = (filter) => {
+    switch (filter.comparison) {
+    case 'maior que':
+      return setResultSearch(resultSearch
+        .filter((planeta) => Number(planeta[filter.column]) > Number(filter.value)));
+    case 'menor que':
+      return setResultSearch(resultSearch
+        .filter((planeta) => Number(planeta[filter.column]) < Number(filter.value)));
+    case 'igual a':
+      return setResultSearch(resultSearch
+        .filter((planeta) => Number(planeta[filter.column]) === Number(filter.value)));
+    default:
+      break;
+    }
+  };
+
   const contextValue = {
     fetchPlanet,
     planetList,
@@ -29,6 +50,9 @@ function MyProvider({ children }) {
     setPlanetName,
     filterPlanetName,
     setResultSearch,
+    saveFilters,
+    filtration,
+    filterByNumericValues,
   };
 
   return (
