@@ -20,7 +20,7 @@ function MyProvider({ children }) {
       // dica do saturnino
       setResultSearch(filterApi);
     } catch (error) {
-      console.log(error.mensage);
+      console.log('A API está indisponivel');
     }
   };
 
